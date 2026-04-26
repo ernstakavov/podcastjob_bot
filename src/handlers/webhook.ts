@@ -36,6 +36,7 @@ export async function webhookHandler(
   }
 
   const payload = request.body as WebhookPayload
+  console.log('Webhook payload received:', JSON.stringify(payload, null, 2))
 
   if (!payload || !payload.table || !payload.record) {
     reply.code(400).send({ error: 'Invalid payload' })
